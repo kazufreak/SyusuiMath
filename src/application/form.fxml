@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.formController" />
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.formController">
+   <left>
+      <VBox prefHeight="675.0" prefWidth="223.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="86.0" prefWidth="202.0" />
+            <HBox maxHeight="378.0" prefHeight="378.0" prefWidth="202.0">
+               <children>
+                  <VBox prefHeight="378.0" prefWidth="146.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="桝高：H" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="70.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="桝内幅：B" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="60.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="桝奥行：L" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="60.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="壁厚：tw" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="70.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="底版厚：tb" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="60.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="構造：有筋or無筋" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="土の単位体積重量：rs" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="土の内部摩擦角：Φ" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="12.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="載荷重：wq" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="60.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="盛土高：h" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="60.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="法面勾配：ih" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="50.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="壁面摩擦角：a" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Meiryo" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="40.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="378.0" prefWidth="93.0">
+                     <children>
+                        <TextField fx:id="in_H" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_B" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_L" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_tw" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_tb" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <ComboBox fx:id="in_rc" prefWidth="150.0" />
+                        <TextField fx:id="in_rs" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_dang" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_wq" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_h" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_ih" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                        <TextField fx:id="in_a" alignment="CENTER_RIGHT" maxWidth="80.0" prefWidth="80.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="view_canvas" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
