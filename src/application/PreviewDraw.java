@@ -1,9 +1,7 @@
 package application;
 
-import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 public class PreviewDraw {
@@ -41,31 +39,37 @@ public class PreviewDraw {
 			this.a = a;
 			this.ih = ih;
 
+			this.sc = 100;
+			this.yo = 100;//余白
+			this.sy1 = 10;//寸法余白
 		}
 		void scale() {
 			//6.25 - > 2.5*2.5  12.25 -> 3.5*3.5
-			if(this.H * this.B <= 6.25) {
-				this.sc = 1;
-				this.yo = 10;
-				this.sy1 = 5;
-			}else if(this.H * this.B >= 6.25 && this.H * this.B <= 12.25) {
-				this.sc = 0.6;
-				this.sc = 1 * sc;
-				this.yo = 10 * sc;
-				this.sy1 = 5 * sc;
+			double a = 10;
+			double b = 10;
+			double c = 10;
+
+			if(this.H * this.B <= 6.25*sc) {
+				this.sc = a;
+				this.yo = a;
+				this.sy1 = c;
+			}if(this.H * this.B >= 6.25 && this.H * this.B <= 12.25*sc) {
+				double kc = 0.6;
+				this.sc = a * kc;
+				this.yo = b * kc;
+				this.sy1 = c * kc;
 			}
 		}
-		void draw(AnchorPane pane) {
-			scale();//スケール設定
+		void draw(Canvas canvas) {
+			//scale();//スケール設定
 
-			Group root = new Group();
-
-			Canvas canvas = new Canvas(600,600);
+			//Group root = new Group();
 			GraphicsContext gc = canvas.getGraphicsContext2D();
 			//図形作画
-			double[][] pos = strpoint();
-			double[] x = null;
-			double[] y = null;
+			double[][] pos = strpoint();//集水桝ます座標化メソッド
+
+			double[] x = new double[pos.length];
+			double[] y = new double[pos.length];
 			for(int i = 0; i < pos.length; i++) {
 				x[i] = pos[i][0];
 				y[i] = pos[i][1];
@@ -75,11 +79,19 @@ public class PreviewDraw {
 			gc.setStroke(Color.DARKGRAY);
 			gc.strokePolyline(x,y,x.length);//集水桝作画
 
-			root.getChildren().addAll(canvas);
+			//root.getChildren().addAll(canvas);
+
+
+
 		}
 		double[][] strpoint() {
 			//集水桝を座標変換
-			double[][] pos = {{yo,yo},{yo,yo+H+tb},{yo+tw*2+B,yo+H+tb},{yo+tw*2+B,yo},{yo+tw+B,yo},{yo+tw+B,yo+H},{yo+tw,yo+H},{yo+tw,yo}};
+			double[][] pos = {{yo,yo},{yo,yo+(H+tb)*sc},{yo+(tw*2+B)*sc,yo+(H+tb)*sc},{yo+(tw*2+B)*sc,yo},{yo+(tw+B)*sc,yo},
+					{yo+(tw+B)*sc,yo+H*sc},{yo+tw*sc,yo+H*sc},{yo+tw*sc,yo},{yo,yo}};
+			for(int i = 0; i < pos.length ; i++) {
+				System.out.println("座標値" + i + ":"+ pos[i][0] + ","+ pos[i][1]);
+			}
+
 			return pos;
 		}
 		double[][] rspoint(){
